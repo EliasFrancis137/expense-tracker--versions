@@ -3,23 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Expense Tracker</title>
+  <title>Expense Tracker v2</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <h1>Expense Tracker</h1>
 
+    <!-- Add Expense Form -->
     <form id="expense-form">
       <input type="text" id="expense-name" placeholder="Expense name" required>
       <input type="number" id="expense-amount" placeholder="Amount" required>
+      <select id="expense-category" required>
+        <option value="" disabled selected>Select Category</option>
+        <option value="Food">Food</option>
+        <option value="Transport">Transport</option>
+        <option value="Bills">Bills</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Other">Other</option>
+      </select>
+      <input type="date" id="expense-date" required>
       <button type="submit">Add Expense</button>
     </form>
 
+    <!-- Filters -->
+    <div class="filters">
+      <select id="filter-category">
+        <option value="all">All Categories</option>
+        <option value="Food">Food</option>
+        <option value="Transport">Transport</option>
+        <option value="Bills">Bills</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <input type="month" id="filter-month">
+      <button id="clear-filters">Clear Filters</button>
+    </div>
+
+    <!-- Expense List -->
     <h2>Expenses</h2>
     <ul id="expense-list"></ul>
 
+    <!-- Totals -->
     <h3>Total: $<span id="total">0</span></h3>
+    <div id="category-summary"></div>
   </div>
 
   <script src="script.js"></script>
